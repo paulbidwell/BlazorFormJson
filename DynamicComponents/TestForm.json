@@ -1,0 +1,57 @@
+{
+  "Version": 1.00,
+  "Description": "Test Form",
+  "Fields": 
+  [
+    {
+      "DataType": "string",
+      "Label": "Text 1",
+      "Name": "Text1",
+      "Layout": {
+        "Row": 1
+      },
+      "Validation": {
+        "Required": true
+      }
+    },
+    {
+      "DataType": "string",
+      "Label": "Text 2",
+      "ShowLabel": false,
+      "Name": "Text2",
+      "Layout": {
+        "Row": 1
+      },
+      "Validation": {
+        "Required": true
+      }
+    },
+    {
+      "DataType": "int?",
+      "Label": "Number",
+      "ShowLabel": true,
+      "Name": "Number1",
+      "Required": false,
+      "Layout": {
+        "Row": 2,
+        "ColSpan": 2
+      },
+      "Validation": {
+        "Required": false
+      }
+    },
+    {
+      "DataType": "bool",
+      "Label": "Choose",
+      "ShowLabel": true,
+      "Name": "Bool1",
+      "Layout": {
+        "Row": 3,
+        "ColSpan": 1
+      },
+      "Validation": {
+
+      }
+    }
+  ]
+}

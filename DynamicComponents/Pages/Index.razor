@@ -1,0 +1,15 @@
+﻿@page "/"
+@using VxFormGenerator.Core
+
+@if (_model != null)
+{
+    <EditForm Model="@_model" OnValidSubmit="@Save">
+        <DataAnnotationsValidator />
+    
+        <RenderFormElements></RenderFormElements>		
+   
+        <input type="submit" value="Submit" />
+        
+        <ValidationSummary />
+    </EditForm>
+}
