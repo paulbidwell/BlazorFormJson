@@ -59,16 +59,30 @@ namespace DynamicComponents
 
             if (field.LayoutAttributes.Any())
             {
+                var propInfo = new List<PropertyInfo>();
+                var propValues = new List<object>();
+                var attType = typeof(VxFormElementLayoutAttribute);
+
                 foreach (var attribute in field.LayoutAttributes)
                 {
-                    Type[] ctorParams = new Type[] { typeof(string) };
-                    ConstructorInfo classCtorInfo = typeof(VxFormElementLayoutAttribute).GetConstructor(ctorParams);
-                    CustomAttributeBuilder att = new CustomAttributeBuilder(classCtorInfo, new object[] { "1" });
+                    var prop = attType.GetProperty(attribute.Key);
+                    var propType = prop.PropertyType;
+                    var propValue = Convert.ChangeType(attribute.Value, propType);
 
-                    if (att != null)
-                    {
-                        propertyBuilder.SetCustomAttribute(att);
-                    }
+                    propInfo.Add(prop);
+                    propValues.Add(propValue);
+                }
+
+                ConstructorInfo classCtorInfo = attType.GetConstructor(Type.EmptyTypes);
+                CustomAttributeBuilder att = new CustomAttributeBuilder(
+                    classCtorInfo,
+                    Array.Empty<object>(),
+                    propInfo.ToArray(),
+                    propValues.ToArray());
+
+                if (att != null)
+                {
+                    propertyBuilder.SetCustomAttribute(att);
                 }
             }
 
@@ -78,8 +92,7 @@ namespace DynamicComponents
 
                 if (attribute.Key == "Required" && (bool)attribute.Value == true)
                 {
-                    Type[] ctorParams = Array.Empty<Type>();
-                    ConstructorInfo classCtorInfo = typeof(RequiredAttribute).GetConstructor(ctorParams);
+                    ConstructorInfo classCtorInfo = typeof(RequiredAttribute).GetConstructor(Type.EmptyTypes);
                     att = new CustomAttributeBuilder(classCtorInfo, Array.Empty<object>());                   
                 }
 

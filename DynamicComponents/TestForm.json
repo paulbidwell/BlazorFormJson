@@ -5,10 +5,12 @@
   [
     {
       "DataType": "string",
-      "Label": "Text 1",
       "Name": "Text1",
       "Layout": {
-        "Row": 1
+        "RowId": 1,
+        "ColSpan": 3,
+        "Label": "Text 1",
+        "Placeholder": "Text1"
       },
       "Validation": {
         "Required": true
@@ -16,11 +18,12 @@
     },
     {
       "DataType": "string",
-      "Label": "Text 2",
-      "ShowLabel": false,
       "Name": "Text2",
       "Layout": {
-        "Row": 1
+        "RowId": 1,
+        "ColSpan": 3,
+        "Label": "Text 2",
+        "Placeholder": "Text2"
       },
       "Validation": {
         "Required": true
@@ -28,13 +31,12 @@
     },
     {
       "DataType": "int?",
-      "Label": "Number",
-      "ShowLabel": true,
       "Name": "Number1",
       "Required": false,
       "Layout": {
-        "Row": 2,
-        "ColSpan": 2
+        "RowId": 2,
+        "ColSpan": 1,
+        "Label": "Number 1"
       },
       "Validation": {
         "Required": false
@@ -42,12 +44,11 @@
     },
     {
       "DataType": "bool",
-      "Label": "Choose",
-      "ShowLabel": true,
       "Name": "Bool1",
       "Layout": {
-        "Row": 3,
-        "ColSpan": 1
+        "RowId": 3,
+        "ColSpan": 1,
+        "Label": "Bool 1"
       },
       "Validation": {
 
