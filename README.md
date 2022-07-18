@@ -6,6 +6,3 @@ This seems to be the better method over ExpandoObjects, which is quite limited i
 
 The actual generation of the form is done by a library called VxFormGenerator.
 I had mostly done it myself, but this included all the layout stuff and seems to work as I want, saved me a job for the time being.
-
-
-The solution was made in VS 2022 Preview 1 / .net 5
